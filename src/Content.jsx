@@ -1,17 +1,28 @@
+import axios from "axios";
+import { useState, useEffect } from "react";
 import { ProductsNew } from "./ProductsNew";
 import { ProductsIndex } from "./ProductsIndex";
 
 export function Content() {
-  const products = [
-    { id: 1, name: "First", url: "https://via.placeholder.com/150", width: 150, height: 150 },
-    { id: 2, name: "Second", url: "https://via.placeholder.com/300", width: 300, height: 300 },
-  ];
+  const [products, setProducts] = useState([]);
+
+  const handleIndexProducts = () => {
+    axios.get("http://localhost:3000/products.json", useState).then((response) => {
+      setProducts(response.data);
+    });
+  };
+
+  const handleCreateProduct = (params) => {
+    axios.get("http://localhost:3000/products.json", params);
+    setProducts([...products, response.data]);
+  };
+
+  useEffect(handleIndexProducts, []);
   return (
     <main>
       <h1>Welcome to React!</h1>
-
       <div>
-        <ProductsNew />
+        <ProductsNew onCreate={handleCreateProduct} />
         <ProductsIndex products={products} />
       </div>
     </main>
