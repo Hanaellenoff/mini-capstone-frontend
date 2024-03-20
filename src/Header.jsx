@@ -2,7 +2,7 @@ export function Header() {
   return (
     <div>
       <nav>
-        <a href="#">Products</a> | <a href="#">Home</a>
+        <a href="#products-index">Products</a> | <a href="#products-new">Home</a>
       </nav>
     </div>
   );

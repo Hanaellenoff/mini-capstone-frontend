@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { ProductsNew } from "./ProductsNew";
 import { ProductsIndex } from "./ProductsIndex";
+import { Modal } from "./Modal";
 
 export function Content() {
   const [products, setProducts] = useState([]);
@@ -13,8 +14,21 @@ export function Content() {
   };
 
   const handleCreateProduct = (params) => {
-    axios.get("http://localhost:3000/products.json", params);
-    setProducts([...products, response.data]);
+    axios.post("http://localhost:3000/products.json", params).then((response) => {
+      setProducts([...products, response.data]);
+    });
+  };
+
+  const [isProductsShowVisable, setIsProductsShowVisable] = useState(false);
+  const [currentProduct, setCurrentProduct] = useState({});
+
+  const handleShowProduct = (product) => {
+    setIsProductsShowVisable(true);
+    setCurrentProduct(product);
+  };
+
+  const handleClose = () => {
+    setIsProductsShowVisable(false);
   };
 
   useEffect(handleIndexProducts, []);
@@ -22,8 +36,11 @@ export function Content() {
     <main>
       <h1>Welcome to React!</h1>
       <div>
-        <ProductsNew onCreate={handleCreateProduct} />
-        <ProductsIndex products={products} />
+        <ProductsNew onCreateProduct={handleCreateProduct} />
+        <ProductsIndex products={products} onShowProducts={handleShowProduct} />
+        <Modal show={isProductsShowVisable} onClose={handleClose}>
+          <h1>test</h1>
+        </Modal>
       </div>
     </main>
   );

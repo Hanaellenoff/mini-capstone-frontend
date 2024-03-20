@@ -1,21 +1,23 @@
-export function ProductsNew() {
+/* eslint-disable react/prop-types */
+export function ProductsNew(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
-    params = new FormData(event.target);
+    const params = new FormData(event.target);
+    props.onCreateProduct(params, () => event.target.reset());
   };
   return (
-    <div>
-      <form>
+    <div id="products-new">
+      <form onSubmit={handleSubmit}>
         <div>
           Name: <input name="name" type="text" />
         </div>
         <div>
-          Price: <input name="price" type="integer" />
+          Price: <input name="price" type="decimal" />
         </div>
         <div>
           Description: <input name="description" type="text" />
         </div>
-        <button></button>
+        <button type="submit">Create new Product</button>
       </form>
     </div>
   );
