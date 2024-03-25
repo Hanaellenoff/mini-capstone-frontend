@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { ProductsNew } from "./ProductsNew";
 import { ProductsIndex } from "./ProductsIndex";
 import { Modal } from "./Modal";
+import { Signup } from "./Signup";
 
 export function Content() {
   const [products, setProducts] = useState([]);
@@ -36,6 +37,7 @@ export function Content() {
     <main>
       <h1>Welcome to React!</h1>
       <div>
+        <Signup />
         <ProductsNew onCreateProduct={handleCreateProduct} />
         <ProductsIndex products={products} onShowProducts={handleShowProduct} />
         <Modal show={isProductsShowVisable} onClose={handleClose}>
