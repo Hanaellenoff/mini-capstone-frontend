@@ -4,6 +4,7 @@ import { ProductsNew } from "./ProductsNew";
 import { ProductsIndex } from "./ProductsIndex";
 import { Modal } from "./Modal";
 import { Signup } from "./Signup";
+import { Login } from "./Login";
 
 export function Content() {
   const [products, setProducts] = useState([]);
@@ -38,6 +39,7 @@ export function Content() {
       <h1>Welcome to React!</h1>
       <div>
         <Signup />
+        <Login />
         <ProductsNew onCreateProduct={handleCreateProduct} />
         <ProductsIndex products={products} onShowProducts={handleShowProduct} />
         <Modal show={isProductsShowVisable} onClose={handleClose}>

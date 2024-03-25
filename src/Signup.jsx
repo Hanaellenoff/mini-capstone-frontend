@@ -13,6 +13,7 @@ export function Signup() {
 
   return (
     <div id="signup">
+      <h1>Signup</h1>
       <form onSubmit={handleSubmit}>
         <div>
           Name: <input name="name" type="text" />
