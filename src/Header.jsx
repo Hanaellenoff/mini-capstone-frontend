@@ -3,7 +3,8 @@ export function Header() {
   return (
     <div>
       <nav className="main_header">
-        <a href="#products-index">Products</a> | <a href="#products-new">Home </a> | <Link to="/signup">Signup</Link>
+        <Link to="/">Home </Link> | <Link to="/productsnew">New</Link> |<Link to="/signup">Signup</Link> |{" "}
+        <Link to="/login">Login</Link> | <Link to="/logoutlink">Logout</Link>
       </nav>
     </div>
   );

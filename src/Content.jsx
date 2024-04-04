@@ -7,6 +7,7 @@ import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
 import { Routes, Route } from "react-router-dom";
+// import { ProductsShowPage } from "ProductsShowPage";
 
 export function Content() {
   const [products, setProducts] = useState([]);
@@ -41,12 +42,13 @@ export function Content() {
       <h1>Welcome to React!</h1>
       <Routes>
         <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logoutlink" element={<LogoutLink />} />
+        {/* <Route path="/products/:id" element={<ProductsShowPage />} /> */}
+        <Route path="/productsnew" element={<ProductsNew onCreateProduct={handleCreateProduct} />} />
+        <Route path="/" element={<ProductsIndex products={products} onShowProducts={handleShowProduct} />} />
       </Routes>
       <div>
-        <Login />
-        <LogoutLink />
-        <ProductsNew onCreateProduct={handleCreateProduct} />
-        <ProductsIndex products={products} onShowProducts={handleShowProduct} />
         <Modal show={isProductsShowVisable} onClose={handleClose}>
           <h1>test</h1>
         </Modal>
