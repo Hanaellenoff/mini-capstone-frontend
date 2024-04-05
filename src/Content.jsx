@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import { ProductsNew } from "./ProductsNew";
 import { ProductsIndex } from "./ProductsIndex";
 import { Modal } from "./Modal";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
-import { Routes, Route } from "react-router-dom";
 // import { ProductsShowPage } from "ProductsShowPage";
 
 export function Content() {
@@ -46,10 +46,10 @@ export function Content() {
         <Route path="/logoutlink" element={<LogoutLink />} />
         {/* <Route path="/products/:id" element={<ProductsShowPage />} /> */}
         <Route path="/productsnew" element={<ProductsNew onCreateProduct={handleCreateProduct} />} />
-        <Route path="/" element={<ProductsIndex products={products} onShowProducts={handleShowProduct} />} />
+        <Route path="/products" element={<ProductsIndex products={products} onShowProducts={handleShowProduct} />} />
       </Routes>
       <div>
-        <Modal show={isProductsShowVisable} onClose={handleClose}>
+        <Modal show={isProductsShowVisable} product={currentProduct} onClose={handleClose}>
           <h1>test</h1>
         </Modal>
       </div>
