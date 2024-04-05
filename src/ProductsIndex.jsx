@@ -12,7 +12,7 @@ export function ProductsIndex(props) {
           <option key={product.id}>{product.name}</option>
         ))}
       </datalist>
-      <div className="cards">
+      <div className="card">
         {props.products
           .filter((product) => product.name.toLowerCase().includes(searchFilter.toLowerCase()))
           .map((product) => (
