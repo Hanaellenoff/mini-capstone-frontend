@@ -46,7 +46,7 @@ export function Content() {
         <Route path="/logoutlink" element={<LogoutLink />} />
         {/* <Route path="/products/:id" element={<ProductsShowPage />} /> */}
         <Route path="/productsnew" element={<ProductsNew onCreateProduct={handleCreateProduct} />} />
-        <Route path="/products" element={<ProductsIndex products={products} onShowProducts={handleShowProduct} />} />
+        <Route path="/" element={<ProductsIndex products={products} onShowProducts={handleShowProduct} />} />
       </Routes>
       <div>
         <Modal show={isProductsShowVisable} product={currentProduct} onClose={handleClose}>
